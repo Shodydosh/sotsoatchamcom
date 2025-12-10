@@ -16,7 +16,7 @@ function BackgroundTitle({ text }) {
     <Text
       position={[0, 1, -5]}
       fontSize={1.2}
-      color="#1a1a1a"
+      color="#e0e0e0"
       anchorX="center"
       anchorY="middle"
       letterSpacing={0.02}
@@ -75,7 +75,7 @@ function ModelViewer({ model, onClose }) {
           dpr={[1, 2]}
           performance={{ min: 0.5 }}
         >
-          <color attach="background" args={['#121212']} />
+          <color attach="background" args={['#f5f5f5']} />
           <ambientLight intensity={0.5} />
           <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
           <directionalLight position={[-10, -10, -5]} intensity={0.3} />
@@ -90,10 +90,10 @@ function ModelViewer({ model, onClose }) {
             infiniteGrid 
             cellSize={0.5}
             cellThickness={0.5}
-            cellColor="#1f1f1f"
+            cellColor="#e0e0e0"
             sectionSize={2}
             sectionThickness={1}
-            sectionColor="#2a2a2a"
+            sectionColor="#d0d0d0"
             fadeDistance={30}
           />
           

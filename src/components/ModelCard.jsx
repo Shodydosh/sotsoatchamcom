@@ -15,8 +15,8 @@ function BackgroundTitle({ text }) {
   return (
     <Text
       position={[0, 0, -2]}
-      fontSize={0.35}
-      color="#2a2a2a"
+      fontSize={0.4}
+      color="#d5d5d5"
       anchorX="center"
       anchorY="middle"
       letterSpacing={0.02}
@@ -32,7 +32,7 @@ function LoadingFallback() {
   return (
     <mesh>
       <boxGeometry args={[0.5, 0.5, 0.5]} />
-      <meshStandardMaterial color="#2a2a2a" wireframe />
+      <meshStandardMaterial color="#e0e0e0" wireframe />
     </mesh>
   )
 }
