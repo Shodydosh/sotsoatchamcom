@@ -1,16 +1,54 @@
-# React + Vite
+# SỘT SOẠT CHẤM COM
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+3D Scans Gallery built with React + Three.js
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Deploy on Vercel: [sotsoatchamcom.vercel.app](https://sotsoatchamcom.vercel.app)
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React** - UI Framework
+- **Three.js** - 3D Rendering
+- **React Three Fiber** - React renderer for Three.js
+- **Vite** - Build tool
+- **pnpm** - Package manager
 
-## Expanding the ESLint configuration
+## 📦 Development
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# Install dependencies
+pnpm install
+
+# Start dev server
+pnpm dev
+
+# Build for production
+pnpm build
+```
+
+## 📁 Add New Models
+
+1. Add `.glb` file to `public/models/`
+2. Edit `src/data/models.json`:
+
+```json
+{
+  "id": "3",
+  "name": "Model Name",
+  "description": "Description",
+  "date": "2024-12-10",
+  "file": "/models/filename.glb"
+}
+```
+
+## 🌐 Deploy to Vercel
+
+1. Go to [vercel.com](https://vercel.com)
+2. Import from GitHub: `Shodydosh/sotsoatchamcom`
+3. Vercel auto-detects Vite → Click Deploy!
+
+**Settings (auto-detected):**
+- Framework: Vite
+- Build Command: `pnpm build`
+- Output Directory: `dist`
