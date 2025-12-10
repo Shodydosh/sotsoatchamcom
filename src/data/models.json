@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "name": "Vua Mèo",
+    "description": "Vua Mèo KFC giải đề hoá học chất VKL",
+    "date": "2024-12-10",
+    "file": "/models/vuameo.glb"
+  },
+  {
+    "id": "2",
+    "name": "Anh Bảo Ngủ",
+    "description": "Hoàng Cửu Lê Bảo sleepin",
+    "date": "2024-12-10",
+    "file": "/models/anhBaongu.glb"
+  }
+]
