@@ -15,8 +15,8 @@ function BackgroundTitle({ text }) {
   return (
     <Text
       position={[0, 0, -2]}
-      fontSize={0.4}
-      color="#d5d5d5"
+      fontSize={0.35}
+      color="#2a2a2a"
       anchorX="center"
       anchorY="middle"
       letterSpacing={0.02}
@@ -28,14 +28,27 @@ function BackgroundTitle({ text }) {
   )
 }
 
+function LoadingFallback() {
+  return (
+    <mesh>
+      <boxGeometry args={[0.5, 0.5, 0.5]} />
+      <meshStandardMaterial color="#2a2a2a" wireframe />
+    </mesh>
+  )
+}
+
 function ModelCard({ model, onClick }) {
   return (
     <div className="model-card" onClick={() => onClick(model)}>
       <div className="model-preview">
-        <Canvas camera={{ position: [2, 1.5, 2], fov: 45 }}>
+        <Canvas 
+          camera={{ position: [2, 1.5, 2], fov: 45 }}
+          dpr={[1, 1.5]}
+          performance={{ min: 0.5 }}
+        >
           <ambientLight intensity={0.6} />
           <directionalLight position={[5, 5, 5]} intensity={0.8} />
-          <Suspense fallback={null}>
+          <Suspense fallback={<LoadingFallback />}>
             <BackgroundTitle text={model.name} />
             <Model url={model.file} />
             <Environment preset="city" />
@@ -44,7 +57,8 @@ function ModelCard({ model, onClick }) {
             enableZoom={false} 
             enablePan={false}
             autoRotate 
-            autoRotateSpeed={2}
+            autoRotateSpeed={1.5}
+            enableRotate={false}
           />
         </Canvas>
       </div>

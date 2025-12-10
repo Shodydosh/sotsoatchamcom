@@ -1,17 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Routes, Route, useParams, useNavigate, Link } from 'react-router-dom'
 import ModelCard from './components/ModelCard'
 import ModelViewer from './components/ModelViewer'
 import modelsData from './data/models.json'
 import './App.css'
 
-function App() {
-  const [selectedModel, setSelectedModel] = useState(null)
+function Gallery() {
+  const navigate = useNavigate()
+
+  const handleModelClick = (model) => {
+    navigate(`/model/${model.id}`)
+  }
 
   return (
-    <div className="app">
+    <>
       <header className="header">
-        <h1>SỘT SOẠT CHẤM COM</h1>
-        <span className="subtitle">OK polyscan 7 ngày trial nên CL j tôi cũng scan - SỐT NGUYỂN</span>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <h1>SỘT SOẠT CHẤM COM</h1>
+        </Link>
+        <span className="subtitle">3D Scans Gallery</span>
       </header>
 
       <main className="gallery">
@@ -19,7 +26,7 @@ function App() {
           <ModelCard 
             key={model.id} 
             model={model} 
-            onClick={setSelectedModel}
+            onClick={handleModelClick}
           />
         ))}
         
@@ -30,11 +37,39 @@ function App() {
           </div>
         )}
       </main>
+    </>
+  )
+}
 
-      <ModelViewer 
-        model={selectedModel} 
-        onClose={() => setSelectedModel(null)} 
-      />
+function ModelPage() {
+  const { id } = useParams()
+  const navigate = useNavigate()
+  const model = modelsData.find(m => m.id === id)
+
+  if (!model) {
+    return (
+      <div className="not-found">
+        <h2>Model không tồn tại</h2>
+        <Link to="/">← Về trang chủ</Link>
+      </div>
+    )
+  }
+
+  return (
+    <ModelViewer 
+      model={model} 
+      onClose={() => navigate('/')} 
+    />
+  )
+}
+
+function App() {
+  return (
+    <div className="app">
+      <Routes>
+        <Route path="/" element={<Gallery />} />
+        <Route path="/model/:id" element={<ModelPage />} />
+      </Routes>
     </div>
   )
 }

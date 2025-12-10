@@ -12,5 +12,12 @@
     "description": "Hoàng Cửu Lê Bảo sleepin",
     "date": "2024-12-10",
     "file": "/models/anhBaongu.glb"
+  },
+  {
+    "id": "3",
+    "name": "Đạo Diễn Hải Tôm",
+    "description": "Đạo diễn Tổm 2 Sleepin",
+    "date": "2024-12-10",
+    "file": "/models/Hải Tôm.glb"
   }
 ]
